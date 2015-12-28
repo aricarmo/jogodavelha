@@ -57,7 +57,7 @@ class ViewController: UIViewController {
                             self.playAgain.center = CGPointMake(self.playAgain.center.x + 500, self.playAgain.center.y)
                         })
                     }else{
-                        gameOverLabel.text = "O BOLINHA VENCEU!!!"
+                        gameOverLabel.text = "A BOLINHA VENCEU!!!"
                         gameOverLabel.hidden = false;
                         playAgain.hidden = false;
                         UIView.animateWithDuration(0.5, animations: { () -> Void in

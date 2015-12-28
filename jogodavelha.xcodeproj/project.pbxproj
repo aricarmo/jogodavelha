@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FCB31C281C30ABCA006ABC72 /* jogodavelha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jogodavelha.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCB31C281C30ABCA006ABC72 /* Jogo da Velha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jogo da Velha.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB31C2B1C30ABCA006ABC72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB31C2D1C30ABCA006ABC72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FCB31C301C30ABCA006ABC72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		FCB31C291C30ABCA006ABC72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCB31C281C30ABCA006ABC72 /* jogodavelha.app */,
+				FCB31C281C30ABCA006ABC72 /* Jogo da Velha.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,9 +76,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FCB31C271C30ABCA006ABC72 /* jogodavelha */ = {
+		FCB31C271C30ABCA006ABC72 /* Jogo da Velha */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCB31C3A1C30ABCA006ABC72 /* Build configuration list for PBXNativeTarget "jogodavelha" */;
+			buildConfigurationList = FCB31C3A1C30ABCA006ABC72 /* Build configuration list for PBXNativeTarget "Jogo da Velha" */;
 			buildPhases = (
 				FCB31C241C30ABCA006ABC72 /* Sources */,
 				FCB31C251C30ABCA006ABC72 /* Frameworks */,
@@ -88,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = jogodavelha;
+			name = "Jogo da Velha";
 			productName = jogodavelha;
-			productReference = FCB31C281C30ABCA006ABC72 /* jogodavelha.app */;
+			productReference = FCB31C281C30ABCA006ABC72 /* Jogo da Velha.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FCB31C271C30ABCA006ABC72 /* jogodavelha */,
+				FCB31C271C30ABCA006ABC72 /* Jogo da Velha */,
 			);
 		};
 /* End PBXProject section */
@@ -289,7 +289,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCB31C3A1C30ABCA006ABC72 /* Build configuration list for PBXNativeTarget "jogodavelha" */ = {
+		FCB31C3A1C30ABCA006ABC72 /* Build configuration list for PBXNativeTarget "Jogo da Velha" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCB31C3B1C30ABCA006ABC72 /* Debug */,
