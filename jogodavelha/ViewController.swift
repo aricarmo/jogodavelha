@@ -9,12 +9,97 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var activePlayer = 1;
+    var gameState: [Int] = [0,0,0,0,0,0,0,0,0];
+    let winningCombinations = [[0,1,2], [3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8], [2,4,6]]
+    var gameActive = true;
+    
+    @IBOutlet weak var gameOverLabel: UILabel!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var playAgain: UIButton!
+    
+    @IBAction func actionButton(sender: AnyObject) {
+        //jogo da velha events
+        let contentImage : UIImage? = UIImage(CIImage: sender.image())
+        var gameImage = UIImage()
+        
+        //verify if this tag has been used
+        if(gameState[sender.tag] == 0 && gameActive == true){
+            gameState[sender.tag] = activePlayer
+            print("using", gameState);
+            
+            if(contentImage == nil){
+                if(activePlayer == 1){
+                    gameImage = UIImage(named: "circle.png")!
+                    activePlayer = 2;
+                }else{
+                    gameImage = UIImage(named: "cross.png")!
+                    activePlayer = 1;
+                }
+            }
+            
+            sender.setImage(gameImage, forState: .Normal)
+            
+            for combination in winningCombinations {
+                
+                print("combination",combination)
+                print("winningCombination", gameState[combination[0]])
+                
+                if(gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]]){
+                    //verify winner!
+                    if(activePlayer == 1){
+                        gameOverLabel.text = "O X VENCEU!!!"
+                        gameOverLabel.hidden = false;
+                        playAgain.hidden = false;
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.gameOverLabel.center = CGPointMake(self.gameOverLabel.center.x + 500, self.gameOverLabel.center.y)
+                            
+                            self.playAgain.center = CGPointMake(self.playAgain.center.x + 500, self.playAgain.center.y)
+                        })
+                    }else{
+                        gameOverLabel.text = "O BOLINHA VENCEU!!!"
+                        gameOverLabel.hidden = false;
+                        playAgain.hidden = false;
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.gameOverLabel.center = CGPointMake(self.gameOverLabel.center.x + 500, self.gameOverLabel.center.y)
+                            
+                            self.playAgain.center = CGPointMake(self.playAgain.center.x + 500, self.playAgain.center.y)
+                        })
+                    }
+                    gameActive = false;
+                }
+            }
+        }
+    }
+    
+    @IBAction func playAgainAction(sender: AnyObject) {
+        initialization();
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        initialization()
     }
-
+    
+    //Reset All states of the game.
+    func initialization(){
+        gameState = [0,0,0,0,0,0,0,0,0];
+        activePlayer = 1;
+        gameActive = true;
+        playAgain.hidden = true;
+        gameOverLabel.hidden = true;
+        
+        gameOverLabel.center = CGPointMake(gameOverLabel.center.x - 500, gameOverLabel.center.y)
+        playAgain.center = CGPointMake(playAgain.center.x - 500, playAgain.center.y)
+        
+        for(var i = 0; i < 9; i++){
+            button = view.viewWithTag(i) as! UIButton;
+            
+            button.setImage(nil, forState: .Normal)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
