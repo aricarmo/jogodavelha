@@ -73,6 +73,7 @@ class ViewController: UIViewController {
                     gameActive = false;
                 }
             }
+            //IN TIE CASE CALL TIE MODAL.
             if(gameTurns >= 9 && gameOverLabel.hidden){
                 gameActive = false
                 gameOverLabel.text = "EMPATE!!!"
