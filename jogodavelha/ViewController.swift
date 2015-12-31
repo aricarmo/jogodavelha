@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QuartzCore
 
 class ViewController: UIViewController {
     var activePlayer = 1;
