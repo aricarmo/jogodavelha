@@ -41,6 +41,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FCAF764C1C35DFE200B28618 /* game_images */ = {
+			isa = PBXGroup;
+			children = (
+				FCB31C3D1C30ACB4006ABC72 /* board.png */,
+				FCB31C3E1C30ACB4006ABC72 /* circle.png */,
+				FCB31C3F1C30ACB4006ABC72 /* cross.png */,
+			);
+			name = game_images;
+			sourceTree = "<group>";
+		};
 		FCB31C1F1C30ABCA006ABC72 = {
 			isa = PBXGroup;
 			children = (
@@ -62,9 +72,7 @@
 			children = (
 				FCB31C2B1C30ABCA006ABC72 /* AppDelegate.swift */,
 				FCB31C2D1C30ABCA006ABC72 /* ViewController.swift */,
-				FCB31C3D1C30ACB4006ABC72 /* board.png */,
-				FCB31C3E1C30ACB4006ABC72 /* circle.png */,
-				FCB31C3F1C30ACB4006ABC72 /* cross.png */,
+				FCAF764C1C35DFE200B28618 /* game_images */,
 				FCB31C2F1C30ABCA006ABC72 /* Main.storyboard */,
 				FCB31C321C30ABCA006ABC72 /* Assets.xcassets */,
 				FCB31C341C30ABCA006ABC72 /* LaunchScreen.storyboard */,
@@ -296,6 +304,7 @@
 				FCB31C3C1C30ABCA006ABC72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
