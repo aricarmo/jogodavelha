@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import QuartzCore
 
 class ViewController: UIViewController {
     var activePlayer = 1;
     var gameState: [Int] = [0,0,0,0,0,0,0,0,0];
     let winningCombinations = [[0,1,2], [3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8], [2,4,6]]
     var gameActive = true;
+    var gameTurns = 0;
     
     @IBOutlet weak var gameOverLabel: UILabel!
     @IBOutlet weak var button: UIButton!
@@ -25,8 +27,8 @@ class ViewController: UIViewController {
         
         //verify if this tag has been used
         if(gameState[sender.tag] == 0 && gameActive == true){
+            gameTurns++
             gameState[sender.tag] = activePlayer
-            print("using", gameState);
             
             if(contentImage == nil){
                 if(activePlayer == 1){
@@ -48,17 +50,19 @@ class ViewController: UIViewController {
                 if(gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]]){
                     //verify winner!
                     if(activePlayer == 1){
-                        gameOverLabel.text = "O X VENCEU!!!"
+                        gameOverLabel.text = "X VENCEU!!!"
                         gameOverLabel.hidden = false;
                         playAgain.hidden = false;
+                        gameOverLabel.backgroundColor = UIColor(red:0.18, green:0.75, blue:0.37, alpha:1)
                         UIView.animateWithDuration(0.5, animations: { () -> Void in
                             self.gameOverLabel.center = CGPointMake(self.gameOverLabel.center.x + 500, self.gameOverLabel.center.y)
                             
                             self.playAgain.center = CGPointMake(self.playAgain.center.x + 500, self.playAgain.center.y)
                         })
                     }else{
-                        gameOverLabel.text = "A BOLINHA VENCEU!!!"
+                        gameOverLabel.text = "BOLINHA VENCEU!!!"
                         gameOverLabel.hidden = false;
+                        gameOverLabel.backgroundColor = UIColor(red:0.18, green:0.75, blue:0.37, alpha:1)
                         playAgain.hidden = false;
                         UIView.animateWithDuration(0.5, animations: { () -> Void in
                             self.gameOverLabel.center = CGPointMake(self.gameOverLabel.center.x + 500, self.gameOverLabel.center.y)
@@ -69,7 +73,19 @@ class ViewController: UIViewController {
                     gameActive = false;
                 }
             }
+            if(gameTurns >= 9 && gameOverLabel.hidden){
+                gameActive = false
+                gameOverLabel.text = "EMPATE!!!"
+                gameOverLabel.backgroundColor = UIColor(red:0.91, green:0.29, blue:0.25, alpha:1)
+                gameOverLabel.hidden = false;
+                playAgain.hidden = false;
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.gameOverLabel.center = CGPointMake(self.gameOverLabel.center.x + 500, self.gameOverLabel.center.y)
+                })
+            }
+            
         }
+        
     }
     
     @IBAction func playAgainAction(sender: AnyObject) {
@@ -84,11 +100,12 @@ class ViewController: UIViewController {
     
     //Reset All states of the game.
     func initialization(){
-        gameState = [0,0,0,0,0,0,0,0,0];
-        activePlayer = 1;
-        gameActive = true;
-        playAgain.hidden = true;
-        gameOverLabel.hidden = true;
+        gameTurns = 0
+        gameState = [0,0,0,0,0,0,0,0,0]
+        activePlayer = 1
+        gameActive = true
+        playAgain.hidden = true
+        gameOverLabel.hidden = true
         
         gameOverLabel.center = CGPointMake(gameOverLabel.center.x - 500, gameOverLabel.center.y)
         playAgain.center = CGPointMake(playAgain.center.x - 500, playAgain.center.y)
@@ -98,6 +115,10 @@ class ViewController: UIViewController {
             
             button.setImage(nil, forState: .Normal)
         }
+    }
+    
+    func showWinner(winner: String){
+        
     }
     
     override func didReceiveMemoryWarning() {
